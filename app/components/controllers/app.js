@@ -141,7 +141,7 @@
       //iterate through favorites and match with selected category
       $scope.addNewCategory = function (categoryName) {
         //do nothing if category exists or not a valid name
-        if (!categoryName || categoryName in $scope.categories) {
+        if (!categoryName || $scope.categories.includes(categoryName)) {
           return
         }
         $scope.categories.push(categoryName)
