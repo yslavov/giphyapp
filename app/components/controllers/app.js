@@ -118,6 +118,10 @@
       $scope.addToFavorites = function (category, giphy) {
         var favObject = {}
         favObject[category] = giphy
+        //do nothing if giphie exists
+        if ($scope.favorites.includes(favObject)) {
+          return
+        }
         $scope.favorites.push(favObject)
         apiService.addToFavorites($scope.favorites).then(function(response){
         },function(error){ // Error!
