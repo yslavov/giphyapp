@@ -140,7 +140,12 @@
 
       //iterate through favorites and match with selected category
       $scope.addNewCategory = function (categoryName) {
+        //do nothing if category exists or not a valid name
+        if (!categoryName || categoryName in $scope.categories) {
+          return
+        }
         $scope.categories.push(categoryName)
+        $scope.categoryName = ""
         apiService.addNewCategory($scope.categories).then(function(response){
         },function(error){ // Error!
           //if session is inactive clean ui and load login page
