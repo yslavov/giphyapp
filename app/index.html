@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Giphy App</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- HOME MADE CSS -->
+    <link rel="stylesheet" href="components/css/public/public.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <link rel="icon" type="image/png" href="components/fav/horsey32.png" sizes="32x32">
+  </head>
+  <body>
+    <div id="bootstrapApp" ng-app="appMainModule" ng-controller="AppController">
+      <header class="headerCntnr">
+        <div id="headerElements" class = "headerElements">
+          <div id="logoCntnr" class="logoCntnr">
+            <a href="/"><img id="logoStandardSize" src="components/fav/horsey42.png" alt="Logo" class="logoSrc"></a>
+            <a href="/"><img id="logoMobileSize" src="components/fav/horsey32.png" alt="Logo" class="logoSrc">
+          </div>
+          <a href="/"><div id="logoTxt" class="logoTxt">GIPHY APP</div></a>
+          <div id="mobile-menu" class="glyphicon" ng-class="{'glyphicon-menu-hamburger' : !showMobile, 'glyphicon-remove' : showMobile}" aria-hidden="true" ng-hide="!inSession" ng-click="showMobile = !showMobile"></div>
+          <nav id="tabsCtnr" class="tabsCtnr">
+            <div ng-hide="!inSession" class="nav_tabs" ng-click="signOut()"><label>LOGOUT</label></div>
+          </nav>
+          <nav id="tabsCtnrMobile" class="tabsCtnrMobile" ng-class="{'tabsCtnrMobileShow' : showMobile}">
+            <div class="nav_tabs_mobile" ng-click="showMobile = !showMobile; signOut()"><label>LOGOUT</label></div>
+          </nav>
+        </div>
+      </header>
+      <!--Placeholder for views -->
+      <div ng-view="" autoscroll="true"></div>
+    </div>
+    <footer id="footerCntnr" class="footerCntnr">
+      <div id="connectCtnr" class="connectCtnr">
+        <a target="_blank" href="https://www.linkedin.com/in/yavor-slavov-5ba50a10a" class="connect-tabs"><label>Yavor Slavov</label></a>
+      </div>
+      <div id="poweredBy" class="poweredBy">GIPHY APP</div>
+    </footer>
+  </body>
+  <script src="components/jspublic/resources.min.js"></script>
+</html>

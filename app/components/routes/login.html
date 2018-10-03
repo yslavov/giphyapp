@@ -1,0 +1,25 @@
+<div class="partialCtnr" ng-cloak>
+    <div class="home-login-pane">
+        <div class="home-msg-ctnr">
+            <h1 ng-hide="registerSuccess">Welcome to GIPHY APP! Please use the form to Sign In or Create an Account.</h1>
+            <h1 ng-hide="!registerSuccess">Thank you for becoming a GIPHY App User! You can now Sign In.</h1>
+        </div>
+        <div class="home-login-ctnr">
+            <section class="login-head">Sign {{isLogin ?  "In": "Up"}}</section>
+            <div class="home-login">
+                <div ng-hide="!isLogin">
+                    <input type="text" class="loginInputs" ng-model="username" placeholder="Username" ng-class="{'loginInputsMandatory' : usernameMandatory}"ng-change="usernameMandatory = false">
+                    <input type="password" class="loginInputs" ng-model="password" placeholder="Password" ng-class="{'loginInputsMandatory' : passwordMandatory}" ng-change="passwordMandatory = false">
+                </div>
+                <div ng-hide="isLogin">
+                    <input type="text" class="loginInputs" ng-model="name" placeholder="Name" ng-class="{'loginInputsMandatory' : nameMandatory}" ng-change="nameMandatory = false">
+                    <input type="text" class="loginInputs" ng-model="username" placeholder="Username" ng-class="{'loginInputsMandatory' : usernameMandatory}"ng-change="usernameMandatory = false">
+                    <input type="password" class="loginInputs" ng-model="password" placeholder="Password" ng-class="{'loginInputsMandatory' : passwordMandatory}" ng-change="passwordMandatory = false">
+                </div>
+            </div>
+            <button type="button" class="btn btn-lg btn-success partialButton" ng-click="submitLogin()">{{isLogin ?  "Login": "Register"}}</button>
+            <label class="sign-up-now" title="Revise Quote Inputs" ng-hide="!isLogin" ng-click="isLogin = !isLogin">Sign Up Now</label>
+            <label class="sign-up-now" title="Revise Quote Inputs" ng-hide="isLogin" ng-click="isLogin = !isLogin">Already Registered? Sing In Now</label>
+        </div>
+    </div>
+</div>
